@@ -1,0 +1,27 @@
+version: "3.0"
+
+services:
+  database:
+    container_name: "database"
+    image: "mysql:latest"
+    restart: "always"
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: "break"
+      MYSQL_USER: "ice"
+      MYSQL_PASSWORD: "break"
+      MYSQL_ROOT_PASSWORD: "break"
+
+  phpmyadmin:
+    image: phpmyadmin:5.2.0
+    container_name: PhpMyAdmin
+    restart: always
+    ports:
+      - 80:80
+    environment:
+      - PMA_ARBITRARY=1
+
+volumes:
+  break:
+
